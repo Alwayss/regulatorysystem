@@ -1,0 +1,82 @@
+{
+  "name": "project",
+  "base": "PersistedModel",
+  "strict": false,
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "created": {
+      "type": "date",
+      "comments": "创建时间"
+    },
+    "description": {
+      "type": "string",
+      "comments": "项目描述"
+    },
+    "progress": {
+      "type": "string",
+      "comments": "项目进度"
+    },
+    "remark": {
+      "type": "string",
+      "comments": "备注(记录一些辅助信息,比如是否属于公开招投标)"
+    },
+    "name": {
+      "type": "string",
+      "required": true,
+      "comments": "项目名称"
+    },
+    "site": {
+      "type": "string",
+      "required": true,
+      "comments": "项目所属地区"
+    },
+    "contractId": {
+      "type": "string",
+      "required": true,
+      "comments": "合同id"
+    },
+    "principal": {
+      "type": "string",
+      "required": true,
+      "comments": "负责人"
+    },
+    "principalId": {
+      "type": "string",
+      "required": true,
+      "comments": "负责人Id"
+    },
+    "guid": {
+      "type": "string",
+      "required": true,
+      "comments": "项目编号"
+    },
+    "status": {
+      "type": "string",
+      "comments": "项目状态(区分已结与未结)"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "contract": {
+      "type": "hasOne",
+      "model": "contract",
+      "foreignKey": "projectId"
+    },
+    "stake": {
+      "type": "hasMany",
+      "model": "stake",
+      "foreignKey": ""
+    },
+    "account": {
+      "type": "hasMany",
+      "model": "account",
+      "foreignKey": "projectId",
+      "through": "accountAndProject"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

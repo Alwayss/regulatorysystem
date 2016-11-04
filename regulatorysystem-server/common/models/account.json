@@ -1,0 +1,37 @@
+{
+  "name": "account",
+  "base": "User",
+  "strict": false,
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "mobile": {
+      "type": "string",
+      "comments": "手机号码"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "actor": {
+      "type": "belongsTo",
+      "model": "actor",
+      "foreignKey": ""
+    },
+    "project": {
+      "type": "hasMany",
+      "model": "project",
+      "foreignKey": "accountId",
+      "through": "accountAndProject"
+    }
+  },
+  "acls": [
+    {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}

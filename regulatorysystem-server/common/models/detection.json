@@ -1,0 +1,35 @@
+{
+  "name": "detection",
+  "base": "PersistedModel",
+  "strict": false,
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "comments": "检测方法名称"
+    },
+    "code": {
+      "type": "string",
+      "required": true,
+      "comments": "检测方法代码"
+    },
+    "testLoad": {
+      "type": "number",
+      "required": true,
+      "comments": "试验荷载(单位：KN)"
+    },
+    "unitPrice": {
+      "type": "number",
+      "required": true,
+      "comments": "单价"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,108 @@
+{
+  "name": "contract",
+  "base": "PersistedModel",
+  "strict": false,
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "guid": {
+      "type": "string",
+      "required": true,
+      "comments": "合同编号"
+    },
+    "name": {
+      "type": "string",
+      "required": true,
+      "comments": "合同名称"
+    },
+    "client": {
+      "type": "string",
+      "required": true,
+      "comments": "委托方"
+    },
+    "contractAmount": {
+      "type": "number",
+      "required": true,
+      "comments": "合同金额"
+    },
+    "receipt": {
+      "type": "number",
+      "required": true,
+      "comments": "已收款"
+    },
+    "receivable": {
+      "type": "number",
+      "comments": "应收款"
+    },
+    "unreceivable": {
+      "type": "number",
+      "required": true,
+      "comments": "未收款"
+    },
+    "receivableDate": {
+      "type": "date",
+      "comments": "收款时间"
+    },
+    "isChecked": {
+      "type": "boolean",
+      "comments": "是否核对"
+    },
+    "checkPeople": {
+      "type": "string",
+      "comments": "核对人"
+    },
+    "checkPeopleId": {
+      "type": "string",
+      "comments": "核对人id"
+    },
+    "factWork": {
+      "type": "array",
+      "comments": "用来存放实际所用到的监测方法"
+    },
+    "planWork": {
+      "type": "array",
+      "comments": "用来存放计划所用到的监测方法"
+    },
+    "fileList": {
+      "type": "array",
+      "comments": "合同附件"
+    },
+    "projectId": {
+      "type": "string",
+      "comments": "项目id"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "reports": {
+      "type": "hasMany",
+      "model": "report",
+      "foreignKey": "contractId",
+      "through": "contractAndReport"
+    }
+  },
+  "acls": [],
+  "methods": {
+    "findContractByProIds": {
+      "isStatic": true,
+      "accepts": [
+        {
+          "arg": "projectIds",
+          "type": "array",
+          "http": {
+            "source": "body"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "contracts",
+        "type": "array"
+      },
+      "http": {
+        "verb": "post"
+      }
+    }
+  }
+}

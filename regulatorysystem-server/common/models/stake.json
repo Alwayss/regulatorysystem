@@ -1,0 +1,41 @@
+{
+  "name": "stake",
+  "base": "PersistedModel",
+  "strict": false,
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "comments": "桩点名称"
+    },
+    "site": {
+      "type": "string",
+      "comments": "桩点位置"
+    },
+    "description": {
+      "type": "string",
+      "comments": "桩点描述"
+    },
+    "created": {
+      "type": "date",
+      "comments": "创建时间"
+    },
+    "fileList": {
+      "type": "array",
+      "comments": "桩点附件"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "project": {
+      "type": "belongsTo",
+      "model": "project",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

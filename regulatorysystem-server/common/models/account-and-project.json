@@ -1,0 +1,45 @@
+{
+  "name": "accountAndProject",
+  "base": "PersistedModel",
+  "strict": false,
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {},
+  "validations": [],
+  "relations": {
+    "account": {
+      "type": "belongsTo",
+      "model": "account",
+      "foreignKey": "accountId"
+    },
+    "project": {
+      "type": "belongsTo",
+      "model": "project",
+      "foreignKey": "projectId"
+    }
+  },
+  "acls": [],
+  "methods": {
+    "createRelations": {
+      "isStatic": true,
+      "accepts": [
+        {
+          "arg": "relations",
+          "type": "array",
+          "http": {
+            "source": "body"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "msg",
+        "type": "string"
+      },
+      "http": {
+        "verb": "post"
+      }
+    }
+  }
+}

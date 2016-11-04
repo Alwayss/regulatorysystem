@@ -1,0 +1,36 @@
+{
+  "name": "report",
+  "base": "PersistedModel",
+  "strict": false,
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "guid": {
+      "type": "string",
+      "required": true,
+      "comments": "报告编号"
+    },
+    "name": {
+      "type": "string",
+      "required": true,
+      "comments": "报告名称"
+    },
+    "fileList": {
+      "type": "array",
+      "comments": "报告附件"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "contracts": {
+      "type": "hasMany",
+      "model": "contract",
+      "foreignKey": "reportId",
+      "through": "contractAndReport"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

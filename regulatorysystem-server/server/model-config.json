@@ -1,0 +1,93 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "User": {
+    "dataSource": "mongoDs"
+  },
+  "AccessToken": {
+    "dataSource": "mongoDs",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "mongoDs",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "mongoDs",
+    "public": false
+  },
+  "Role": {
+    "dataSource": "mongoDs",
+    "public": false
+  },
+  "account": {
+    "dataSource": "mongoDs",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "actor": {
+    "dataSource": "mongoDs",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "project": {
+    "dataSource": "mongoDs",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "contract": {
+    "dataSource": "mongoDs",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "detection": {
+    "dataSource": "mongoDs",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "report": {
+    "dataSource": "mongoDs",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "contractAndReport": {
+    "dataSource": "mongoDs",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "stake": {
+    "dataSource": "mongoDs",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "container": {
+    "dataSource": "storage",
+    "public": true
+  },
+  "accountAndProject": {
+    "dataSource": "mongoDs",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  }
+}

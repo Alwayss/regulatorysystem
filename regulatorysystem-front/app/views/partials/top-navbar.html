@@ -1,0 +1,112 @@
+<div class="navbar-header">
+  <a class="sidebar-mobile-toggler pull-left hidden-md hidden-lg" ng-click="toggle('sidebar')"
+     class="btn btn-navbar sidebar-toggle">
+    <i class="ti-align-justify"></i>
+  </a>
+  <a class="navbar-brand" ui-sref="app.dashboard">
+    <img ng-src="{{app.layout.logo}}" alt="{{app.name}}"/>
+  </a>
+  <a class="sidebar-toggler pull-right visible-md visible-lg"
+     ng-click="app.layout.isSidebarClosed = !app.layout.isSidebarClosed">
+    <i class="ti-align-justify"></i>
+  </a>
+  <a class="pull-right menu-toggler visible-xs-block" id="menu-toggler" ng-click="navbarCollapsed = !navbarCollapsed">
+    <span class="sr-only">Toggle navigation</span>
+    <i class="ti-view-grid"></i>
+  </a>
+</div>
+
+<div class="navbar-collapse" ng-init="navbarCollapsed = true" ng-class="{'collapse':navbarCollapsed == true }"
+     ng-controller="powerCtrl">
+  <ul class="nav navbar-right" ct-fullheight="window" data-ct-fullheight-exclusion="header"
+      data-ct-fullheight-if="isSmallDevice">
+    <li class="dropdown" uib-dropdown on-toggle="toggled(open)">
+      <a href class="dropdown-toggle fa-hover" uib-dropdown-toggle>
+        <span class="dot-badge partition-red"></span> <i class="ti-comment"></i> <span>用户信息</span>
+      </a>
+      <ul class="dropdown-menu dropdown-light dropdown-messages dropdown-large"　uib-dropdown-menu role="menu">
+        <li>
+          <span class="dropdown-header"> 未读消息</span>
+        </li>
+        <li>
+          <div class="drop-down-wrapper ps-container">
+            <ul>
+              <li class="unread">
+                <a href="javascript:;" class="unread">
+                  <div class="clearfix">
+                    <div class="thread-image">
+                      <img src="./images/avatar-2.jpg" alt="">
+                    </div>
+                    <div class="thread-content">
+                      <span class="author">Nicole Bell</span>
+                      <span class="preview">Duis mollis, est non commodo luctus, nisi erat porttitor ligula...</span>
+                      <span class="time"> Just Now</span>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:;" class="unread">
+                  <div class="clearfix">
+                    <div class="thread-image">
+                      <img src="./images/avatar-3.jpg" alt="">
+                    </div>
+                    <div class="thread-content">
+                      <span class="author">Steven Thompson</span>
+                      <span class="preview">Duis mollis, est non commodo luctus, nisi erat porttitor ligula...</span>
+                      <span class="time">8 hrs</span>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:;">
+                  <div class="clearfix">
+                    <div class="thread-image">
+                      <img src="./images/avatar-5.jpg" alt="">
+                    </div>
+                    <div class="thread-content">
+                      <span class="author">Kenneth Ross</span>
+                      <span class="preview">Duis mollis, est non commodo luctus, nisi erat porttitor ligula...</span>
+                      <span class="time">14 hrs</span>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li class="view-all">
+          <a href="#">查看所有</a>
+        </li>
+      </ul>
+    </li>
+
+    <li class="dropdown current-user" uib-dropdown on-toggle="toggled(open)">
+      <a href class="dropdown-toggle" uib-dropdown-toggle>
+        <img src="./images/avatar-1.jpg" alt="{{username}}">
+        <span class="username">{{username}} <i class="ti-angle-down"></i></span>
+      </a>
+      <ul class="dropdown-menu dropdown-dark" uib-dropdown-menu role="menu">
+        <li>
+          <a ui-sref="app.pages.user">
+            个人信息
+          </a>
+        </li>
+        <li>
+          <a ui-sref="app.pages.messages">
+            我的消息 (3)
+          </a>
+        </li>
+        <li>
+          <a ng-click="logout()">退出</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <div class="close-handle visible-xs-block menu-toggler" ng-click="navbarCollapsed = true">
+    <div class="arrow-left"></div>
+    <div class="arrow-right"></div>
+  </div>
+</div>
+

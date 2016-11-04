@@ -1,0 +1,29 @@
+{
+  "name": "actor",
+  "base": "PersistedModel",
+  "strict": false,
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "comments": "角色名称"
+    },
+    "type": {
+      "type": "string",
+      "comments": "角色类型(超级管理员、领导、检测员等)"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "account": {
+      "type": "hasMany",
+      "model": "account",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,108 @@
+<section id="page-title">
+  <div class="row">
+    <div class="col-sm-8">
+      <h3 class="mainTitle"><span class="fa fa-users margin-right-20"></span>用户管理</h3>
+    </div>
+    <div class="col-sm-4 margin-top-20">
+      <button type="button" class="btn btn-wide btn-primary" ng-click="changeUser('add',{})">添加用户</button>
+    </div>
+  </div>
+</section>
+<div class="container-fluid container-fullw bg-white">
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-hover" id="sample-table-1">
+        <thead>
+          <tr>
+            <th class="center">#</th>
+            <th>用户名</th>
+            <th class="hidden-xs">电话</th>
+            <th class="center">邮箱</th>
+            <th class="center">角色</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="user in userList">
+            <td class="center">{{$index+1}}</td>
+            <td class="hidden-xs">{{user.username}}</td>
+            <td>{{user.mobile}}</td>
+            <td class="center">{{user.email}}</td>
+            <td class="center">{{user.role}}</td>
+            <td ng-if="user.role == '超级管理员'"></td>
+            <td class="center" ng-if="user.role != '超级管理员'">
+              <div class="visible-md visible-lg hidden-sm hidden-xs">
+                <a ng-click="changeUser('edit',user)" class="btn btn-transparent btn-xs" tooltip-placement="top"
+                   uib-tooltip="编辑">
+                  <i class="fa fa-pencil"></i></a>
+                <a ng-click="delete(user.id)" class="btn btn-transparent btn-xs tooltips" tooltip-placement="top"
+                   uib-tooltip="删除"><i class="fa fa-times fa fa-white"></i></a>
+              </div>
+            </td>
+          </tr>
+          <tr ng-show="noData">
+            <td colspan="6" class="text-center text-large text-bold padding-top-20 padding-bottom-20">暂无数据！</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<script type="text/ng-template" id="addUserContent.html">
+  <div class="modal-header">
+    <h4 class="modal-title">新增用户</h4>
+  </div>
+  <div class="modal-body">
+    <form role="form" class="form-horizontal" style="width:60%;margin: auto">
+      <div class="form-group">
+        <label class="col-sm-3 control-label">
+          用户名
+        </label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" ng-model="user.username">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3 control-label">
+          密码
+        </label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" ng-model="user.password">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3 control-label">
+          邮箱
+        </label>
+        <div class="col-sm-9">
+          <input type="email" class="form-control" ng-model="user.email">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3 control-label">
+          电话
+        </label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" ng-model="user.mobile">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3 control-label">
+          角色
+        </label>
+        <div class="col-sm-9">
+          <ui-select ng-model="role.selected" theme="select2" title="请选择角色">
+            <ui-select-match placeholder="请选择角色">{{$select.selected.name}}</ui-select-match>
+            <ui-select-choices repeat="item in roleList">
+              <div ng-bind-html="item.name | highlight: $select.search"></div>
+            </ui-select-choices>
+          </ui-select>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" ng-click="ok()">确 认</button>
+    <button class="btn btn-warning" ng-click="cancel()">取 消</button>
+  </div>
+</script>

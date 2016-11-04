@@ -1,0 +1,25 @@
+{
+  "name": "contractAndReport",
+  "base": "PersistedModel",
+  "strict": false,
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {},
+  "validations": [],
+  "relations": {
+    "contract": {
+      "type": "belongsTo",
+      "model": "contract",
+      "foreignKey": "contractId"
+    },
+    "report": {
+      "type": "belongsTo",
+      "model": "report",
+      "foreignKey": "reportId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
